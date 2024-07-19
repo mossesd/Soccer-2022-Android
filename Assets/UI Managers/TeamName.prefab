@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2786306343941043031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2786306343941043026}
+  - component: {fileID: 2786306343941043025}
+  - component: {fileID: 2786306343941043024}
+  - component: {fileID: 2786306343941043027}
+  m_Layer: 0
+  m_Name: TeamName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2786306343941043026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786306343941043031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0.725, z: 4}
+  m_LocalScale: {x: 0.3, y: 0.1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!132 &2786306343941043025
+GUIText:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786306343941043031}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Team Name
+  m_Anchor: 4
+  m_Alignment: 1
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 22
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_PixelCorrect: 1
+  m_RichText: 0
+--- !u!114 &2786306343941043024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786306343941043031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bfcc4577d737e419b1d5213ed6b373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TeamNames:
+  - Algeria
+  - Angola
+  - Argentina
+  - Austria
+  - Bahrain
+  - Brazil
+  - Cameroon
+  - China
+  - Colombia
+  - Denmark
+  - Finland
+  - Gabon
+  - Germany
+  - Greece
+  - Honduras
+  - Iran
+  - Israel
+  - Italy
+  - Ivory Coast
+  - Korea
+  - Latvia
+  - Mexico
+  - Morocco
+  - Peru
+  - Potugal
+  - Scotland
+  - Slovakia
+  - Slovenia
+  - Togo
+  - Ukraine
+  - Uruguay
+  - USA
+--- !u!114 &2786306343941043027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786306343941043031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8d91704f2dfb040b42156a0c29d436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fontSize: 44

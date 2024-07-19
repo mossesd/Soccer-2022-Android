@@ -1,0 +1,553 @@
+{
+  "teams": [
+    {
+      "country": "Algeria",
+      "jerseyColor": "Green",
+      "players": [
+        {"name": "Riyad Mahrez", "age": 33, "number": 7, "position": "RW"},
+        {"name": "Islam Slimani", "age": 36, "number": 13, "position": "ST"},
+        {"name": "Sofiane Feghouli", "age": 34, "number": 10, "position": "RW"},
+        {"name": "Aïssa Mandi", "age": 32, "number": 2, "position": "CB"},
+        {"name": "Ramy Bensebaini", "age": 29, "number": 21, "position": "LB"},
+        {"name": "Ismaël Bennacer", "age": 26, "number": 22, "position": "CM"},
+        {"name": "Youcef Atal", "age": 28, "number": 20, "position": "RB"},
+        {"name": "Raïs M'Bolhi", "age": 38, "number": 23, "position": "GK"},
+        {"name": "Adlène Guedioura", "age": 38, "number": 17, "position": "CM"},
+        {"name": "Baghdad Bounedjah", "age": 32, "number": 9, "position": "ST"},
+        {"name": "Yacine Brahimi", "age": 34, "number": 8, "position": "LW"}
+      ]
+    },
+    {
+      "country": "Angola",
+      "jerseyColor": "Red and Black",
+      "players": [
+        {"name": "Tony Cabaça", "age": 36, "number": 1, "position": "GK"},
+        {"name": "Bastos", "age": 32, "number": 4, "position": "CB"},
+        {"name": "Gelson Dala", "age": 27, "number": 10, "position": "ST"},
+        {"name": "Fredy", "age": 33, "number": 11, "position": "LW"},
+        {"name": "Mateus", "age": 39, "number": 7, "position": "RW"},
+        {"name": "Show", "age": 24, "number": 8, "position": "CM"},
+        {"name": "Herenilson", "age": 28, "number": 6, "position": "CDM"},
+        {"name": "Jonathan Buatu", "age": 30, "number": 5, "position": "CB"},
+        {"name": "Bruno Gaspar", "age": 30, "number": 2, "position": "RB"},
+        {"name": "Natael", "age": 27, "number": 3, "position": "LB"},
+        {"name": "Manucho", "age": 41, "number": 9, "position": "ST"}
+      ]
+    },
+    {
+  "country": "Argentina",
+  "jerseyColor": "White and Sky Blue",
+  "players": [
+    {"name": "Emiliano Martinez", "age": 31, "number": 1, "position": "GK"},
+    {"name": "Nicolas Otamendi", "age": 36, "number": 19, "position": "CB"},
+    {"name": "Lisandro Martinez", "age": 26, "number": 25, "position": "CB"},
+    {"name": "Nahuel Molina", "age": 25, "number": 26, "position": "RB"},
+    {"name": "Marcos Acuna", "age": 32, "number": 8, "position": "LB"},
+    {"name": "Rodrigo De Paul", "age": 29, "number": 7, "position": "CM"},
+    {"name": "Leandro Paredes", "age": 29, "number": 5, "position": "CM"},
+    {"name": "Giovani Lo Celso", "age": 28, "number": 20, "position": "CM"},
+    {"name": "Lionel Messi", "age": 36, "number": 10, "position": "RW"},
+    {"name": "Lautaro Martinez", "age": 26, "number": 22, "position": "ST"},
+    {"name": "Angel Di Maria", "age": 36, "number": 11, "position": "LW"}
+  ]
+},
+
+    {
+      "country": "Austria",
+      "jerseyColor": "Red and White",
+      "players": [
+        {"name": "David Alaba", "age": 32, "number": 8, "position": "CB"},
+        {"name": "Marko Arnautović", "age": 35, "number": 7, "position": "ST"},
+        {"name": "Marcel Sabitzer", "age": 30, "number": 9, "position": "CM"},
+        {"name": "Konrad Laimer", "age": 27, "number": 18, "position": "CDM"},
+        {"name": "Stefan Lainer", "age": 31, "number": 21, "position": "RB"},
+        {"name": "Martin Hinteregger", "age": 31, "number": 4, "position": "CB"},
+        {"name": "Andreas Ulmer", "age": 38, "number": 17, "position": "LB"},
+        {"name": "Alexander Schlager", "age": 28, "number": 1, "position": "GK"},
+        {"name": "Xaver Schlager", "age": 26, "number": 23, "position": "CM"},
+        {"name": "Michael Gregoritsch", "age": 30, "number": 11, "position": "ST"},
+        {"name": "Florian Grillitsch", "age": 28, "number": 10, "position": "CM"}
+      ]
+    },
+    {
+      "country": "Bahrain",
+      "jerseyColor": "Red and White",
+      "players": [
+        {"name": "Sayed Mohamed Jaffer", "age": 38, "number": 1, "position": "GK"},
+        {"name": "Waleed Al Hayam", "age": 32, "number": 5, "position": "CB"},
+        {"name": "Sayed Dhiya Saeed", "age": 31, "number": 8, "position": "CM"},
+        {"name": "Ali Madan", "age": 28, "number": 10, "position": "ST"},
+        {"name": "Komail Al Aswad", "age": 29, "number": 11, "position": "LW"},
+        {"name": "Abdulla Yusuf Helal", "age": 30, "number": 9, "position": "ST"},
+        {"name": "Mahdi Abduljabbar", "age": 32, "number": 7, "position": "RW"},
+        {"name": "Sayed Redha Isa", "age": 27, "number": 4, "position": "RB"},
+        {"name": "Ahmed Bughammar", "age": 26, "number": 6, "position": "CB"},
+        {"name": "Ali Haram", "age": 33, "number": 3, "position": "LB"},
+        {"name": "Jamal Rashed", "age": 34, "number": 12, "position": "CM"}
+      ]
+    },
+    {
+  "country": "Brazil",
+  "jerseyColor": "Yellow and Green",
+  "players": [
+    {"name": "Alisson Becker", "age": 31, "number": 1, "position": "GK"},
+    {"name": "Marquinhos", "age": 30, "number": 4, "position": "CB"},
+    {"name": "Thiago Silva", "age": 39, "number": 3, "position": "CB"},
+    {"name": "Danilo", "age": 33, "number": 2, "position": "RB"},
+    {"name": "Alex Sandro", "age": 33, "number": 6, "position": "LB"},
+    {"name": "Casemiro", "age": 32, "number": 5, "position": "CDM"},
+    {"name": "Lucas Paquetá", "age": 26, "number": 7, "position": "CM"},
+    {"name": "Bruno Guimarães", "age": 26, "number": 8, "position": "CM"},
+    {"name": "Neymar Jr.", "age": 32, "number": 10, "position": "LW"},
+    {"name": "Vinícius Júnior", "age": 24, "number": 11, "position": "RW"},
+    {"name": "Richarlison", "age": 27, "number": 9, "position": "ST"}
+  ]
+},
+    {
+      "country": "Cameroon",
+      "jerseyColor": "Green",
+      "players": [
+        {"name": "André Onana", "age": 28, "number": 1, "position": "GK"},
+        {"name": "Vincent Aboubakar", "age": 32, "number": 10, "position": "ST"},
+        {"name": "Eric Maxim Choupo-Moting", "age": 35, "number": 13, "position": "ST"},
+        {"name": "Karl Toko Ekambi", "age": 31, "number": 12, "position": "LW"},
+        {"name": "André-Frank Zambo Anguissa", "age": 28, "number": 8, "position": "CM"},
+        {"name": "Michael Ngadeu-Ngadjui", "age": 33, "number": 4, "position": "CB"},
+        {"name": "Collins Fai", "age": 31, "number": 19, "position": "RB"},
+        {"name": "Jean-Charles Castelletto", "age": 29, "number": 21, "position": "CB"},
+        {"name": "Nouhou Tolo", "age": 27, "number": 25, "position": "LB"},
+        {"name": "Pierre Kunde", "age": 28, "number": 15, "position": "CM"},
+        {"name": "Christian Bassogog", "age": 28, "number": 11, "position": "RW"}
+      ]
+    },
+   
+    {
+      "country": "China",
+      "jerseyColor": "Red",
+      "players": [
+        {"name": "Yan Junling", "age": 33, "number": 1, "position": "GK"},
+        {"name": "Wu Lei", "age": 32, "number": 7, "position": "RW"},
+        {"name": "Zhang Linpeng", "age": 35, "number": 5, "position": "CB"},
+        {"name": "Wang Shenchao", "age": 34, "number": 4, "position": "RB"},
+        {"name": "Zheng Zhi", "age": 43, "number": 10, "position": "CM"},
+        {"name": "Hao Junmin", "age": 37, "number": 8, "position": "CM"},
+        {"name": "Yu Dabao", "age": 35, "number": 22, "position": "ST"},
+        {"name": "Li Lei", "age": 31, "number": 3, "position": "LB"},
+        {"name": "Zhang Xizhe", "age": 33, "number": 11, "position": "CAM"},
+        {"name": "Gao Lin", "age": 38, "number": 18, "position": "ST"},
+        {"name": "Feng Xiaoting", "age": 38, "number": 6, "position": "CB"}
+      ]
+    },
+    {
+  "country": "Colombia",
+  "jerseyColor": "Yellow and Blue",
+  "players": [
+    {"name": "David Ospina", "age": 35, "number": 1, "position": "GK"},
+    {"name": "Yerry Mina", "age": 29, "number": 13, "position": "CB"},
+    {"name": "Davinson Sánchez", "age": 28, "number": 6, "position": "CB"},
+    {"name": "Juan Cuadrado", "age": 36, "number": 11, "position": "RB"},
+    {"name": "Frank Fabra", "age": 33, "number": 18, "position": "LB"},
+    {"name": "Wilmar Barrios", "age": 30, "number": 5, "position": "CDM"},
+    {"name": "James Rodríguez", "age": 33, "number": 10, "position": "CAM"},
+    {"name": "Luis Díaz", "age": 27, "number": 7, "position": "LW"},
+    {"name": "Juan Fernando Quintero", "age": 31, "number": 8, "position": "CM"},
+    {"name": "Duván Zapata", "age": 33, "number": 9, "position": "ST"},
+    {"name": "Rafael Santos Borré", "age": 28, "number": 19, "position": "ST"}
+  ]
+},
+    {
+      "country": "Denmark",
+      "jerseyColor": "Red and White",
+      "players": [
+        {"name": "Kasper Schmeichel", "age": 37, "number": 1, "position": "GK"},
+        {"name": "Simon Kjær", "age": 35, "number": 4, "position": "CB"},
+        {"name": "Andreas Christensen", "age": 28, "number": 6, "position": "CB"},
+        {"name": "Joakim Mæhle", "age": 27, "number": 5, "position": "RB"},
+        {"name": "Jens Stryger Larsen", "age": 33, "number": 17, "position": "LB"},
+        {"name": "Christian Eriksen", "age": 32, "number": 10, "position": "CAM"},
+        {"name": "Pierre-Emile Højbjerg", "age": 28, "number": 23, "position": "CM"},
+        {"name": "Thomas Delaney", "age": 32, "number": 8, "position": "CM"},
+        {"name": "Martin Braithwaite", "age": 33, "number": 9, "position": "ST"},
+        {"name": "Yussuf Poulsen", "age": 30, "number": 20, "position": "LW"},
+        {"name": "Andreas Skov Olsen", "age": 24, "number": 11, "position": "RW"}
+      ]
+    },
+    {
+      "country": "Finland",
+      "jerseyColor": "White and Blue",
+      "players": [
+        {"name": "Lukáš Hrádecký", "age": 34, "number": 1, "position": "GK"},
+        {"name": "Paulus Arajuuri", "age": 35, "number": 2, "position": "CB"},
+        {"name": "Joona Toivio", "age": 36, "number": 4, "position": "CB"},
+        {"name": "Jukka Raitala", "age": 35, "number": 22, "position": "LB"},
+        {"name": "Nikolai Alho", "age": 30, "number": 3, "position": "RB"},
+        {"name": "Glen Kamara", "age": 28, "number": 6, "position": "CM"},
+        {"name": "Robin Lod", "age": 31, "number": 8, "position": "CM"},
+        {"name": "Teemu Pukki", "age": 34, "number": 10, "position": "ST"},
+        {"name": "Joel Pohjanpalo", "age": 29, "number": 20, "position": "ST"},
+        {"name": "Rasmus Schüller", "age": 32, "number": 11, "position": "CM"},
+        {"name": "Fredrik Jensen", "age": 26, "number": 7, "position": "RW"}
+      ]
+    },
+    {
+      "country": "Gabon",
+      "jerseyColor": "Yellow and Blue",
+      "players": [
+        {"name": "Didier Ovono", "age": 40, "number": 1, "position": "GK"},
+        {"name": "Bruno Ecuele Manga", "age": 35, "number": 5, "position": "CB"},
+        {"name": "Lloyd Palun", "age": 35, "number": 21, "position": "RB"},
+        {"name": "Johann Obiang", "age": 30, "number": 3, "position": "LB"},
+        {"name": "Mario Lemina", "age": 30, "number": 18, "position": "CM"},
+        {"name": "Denis Bouanga", "age": 29, "number": 10, "position": "LW"},
+        {"name": "Pierre-Emerick Aubameyang", "age": 35, "number": 9, "position": "ST"},
+        {"name": "Aaron Appindangoyé", "age": 31, "number": 4, "position": "CB"},
+        {"name": "André Biyogo Poko", "age": 31, "number": 8, "position": "CM"},
+        {"name": "Jim Allevinah", "age": 29, "number": 11, "position": "RW"},
+        {"name": "Guelor Kanga", "age": 33, "number": 7, "position": "CAM"}
+      ]
+    },
+    {
+  "country": "Germany",
+  "jerseyColor": "White and Black",
+  "players": [
+    {"name": "Manuel Neuer", "age": 38, "number": 1, "position": "GK"},
+    {"name": "Antonio Rüdiger", "age": 31, "number": 2, "position": "CB"},
+    {"name": "David Raum", "age": 26, "number": 3, "position": "LB"},
+    {"name": "Joshua Kimmich", "age": 29, "number": 6, "position": "CDM"},
+    {"name": "Nico Schlotterbeck", "age": 24, "number": 15, "position": "CB"},
+    {"name": "Toni Kroos", "age": 34, "number": 8, "position": "CM"},
+    {"name": "Jamal Musiala", "age": 21, "number": 10, "position": "CAM"},
+    {"name": "Leroy Sané", "age": 28, "number": 19, "position": "LW"},
+    {"name": "Kai Havertz", "age": 25, "number": 7, "position": "ST"},
+    {"name": "Thomas Müller", "age": 34, "number": 13, "position": "RW"},
+    {"name": "İlkay Gündoğan", "age": 33, "number": 21, "position": "CM"}
+  ]
+},
+    {
+      "country": "Greece",
+      "jerseyColor": "Blue and White",
+      "players": [
+        {"name": "Odisseas Vlachodimos", "age": 30, "number": 1, "position": "GK"},
+        {"name": "Kostas Manolas", "age": 33, "number": 4, "position": "CB"},
+        {"name": "Sokratis Papastathopoulos", "age": 36, "number": 19, "position": "CB"},
+        {"name": "Kostas Tsimikas", "age": 28, "number": 21, "position": "LB"},
+        {"name": "Vasilis Torosidis", "age": 38, "number": 15, "position": "RB"},
+        {"name": "Andreas Samaris", "age": 35, "number": 22, "position": "CM"},
+        {"name": "Giorgos Masouras", "age": 30, "number": 14, "position": "LW"},
+        {"name": "Petros Mantalos", "age": 32, "number": 20, "position": "CAM"},
+        {"name": "Dimitris Pelkas", "age": 30, "number": 10, "position": "RW"},
+        {"name": "Anastasios Bakasetas", "age": 30, "number": 11, "position": "ST"},
+        {"name": "Vangelis Pavlidis", "age": 25, "number": 9, "position": "ST"}
+      ]
+    },
+    
+
+    {
+      "country": "Honduras",
+      "jerseyColor": "Blue and White",
+      "players": [
+        {"name": "Luis López", "age": 30, "number": 1, "position": "GK"},
+        {"name": "Maynor Figueroa", "age": 41, "number": 3, "position": "CB"},
+        {"name": "Emilio Izaguirre", "age": 37, "number": 7, "position": "LB"},
+        {"name": "Bryan Acosta", "age": 30, "number": 8, "position": "CM"},
+        {"name": "Alberth Elis", "age": 28, "number": 17, "position": "RW"},
+        {"name": "Romell Quioto", "age": 32, "number": 12, "position": "LW"},
+        {"name": "Anthony Lozano", "age": 31, "number": 9, "position": "ST"},
+        {"name": "Andy Najar", "age": 31, "number": 20, "position": "RB"},
+        {"name": "Ever Alvarado", "age": 32, "number": 5, "position": "CB"},
+        {"name": "Jorge Benguché", "age": 27, "number": 11, "position": "ST"},
+        {"name": "Carlos Pineda", "age": 26, "number": 6, "position": "CM"}
+      ]
+    },
+    {
+      "country": "Iran",
+      "jerseyColor": "White and Green",
+      "players": [
+        {"name": "Alireza Beiranvand", "age": 31, "number": 1, "position": "GK"},
+        {"name": "Morteza Pouraliganji", "age": 31, "number": 8, "position": "CB"},
+        {"name": "Ramin Rezaeian", "age": 34, "number": 23, "position": "RB"},
+        {"name": "Milad Mohammadi", "age": 30, "number": 5, "position": "LB"},
+        {"name": "Saeid Ezatolahi", "age": 27, "number": 6, "position": "CM"},
+        {"name": "Alireza Jahanbakhsh", "age": 30, "number": 7, "position": "RW"},
+        {"name": "Mehdi Taremi", "age": 31, "number": 9, "position": "ST"},
+        {"name": "Sardar Azmoun", "age": 29, "number": 20, "position": "ST"},
+        {"name": "Ehsan Hajsafi", "age": 34, "number": 3, "position": "LB"},
+        {"name": "Vahid Amiri", "age": 36, "number": 11, "position": "LW"},
+        {"name": "Karim Ansarifard", "age": 34, "number": 10, "position": "ST"}
+      ]
+    },
+    {
+      "country": "Israel",
+      "jerseyColor": "Blue and White",
+      "players": [
+        {"name": "Ofir Marciano", "age": 34, "number": 1, "position": "GK"},
+        {"name": "Eitan Tibi", "age": 36, "number": 18, "position": "CB"},
+        {"name": "Eli Dasa", "age": 31, "number": 2, "position": "RB"},
+        {"name": "Hatem Abd Elhamed", "age": 33, "number": 5, "position": "CB"},
+        {"name": "Nir Bitton", "age": 32, "number": 6, "position": "CM"},
+        {"name": "Manor Solomon", "age": 24, "number": 11, "position": "LW"},
+        {"name": "Eran Zahavi", "age": 36, "number": 7, "position": "ST"},
+        {"name": "Shon Weissman", "age": 28, "number": 9, "position": "ST"},
+        {"name": "Dor Peretz", "age": 29, "number": 17, "position": "CM"},
+        {"name": "Bibras Natcho", "age": 36, "number": 10, "position": "CM"},
+        {"name": "Taleb Tawatha", "age": 31, "number": 3, "position": "LB"}
+      ]
+    },
+    {
+      "country": "Italy",
+      "jerseyColor": "Blue",
+      "players": [
+        {"name": "Gianluigi Donnarumma", "age": 25, "number": 1, "position": "GK"},
+        {"name": "Leonardo Bonucci", "age": 37, "number": 19, "position": "CB"},
+        {"name": "Giorgio Chiellini", "age": 39, "number": 3, "position": "CB"},
+        {"name": "Alessandro Florenzi", "age": 33, "number": 24, "position": "RB"},
+        {"name": "Emerson Palmieri", "age": 29, "number": 13, "position": "LB"},
+        {"name": "Marco Verratti", "age": 31, "number": 6, "position": "CM"},
+        {"name": "Jorginho", "age": 32, "number": 8, "position": "CM"},
+        {"name": "Federico Chiesa", "age": 26, "number": 14, "position": "RW"},
+        {"name": "Lorenzo Insigne", "age": 33, "number": 10, "position": "LW"},
+        {"name": "Ciro Immobile", "age": 34, "number": 17, "position": "ST"},
+        {"name": "Nicolo Barella", "age": 27, "number": 18, "position": "CM"}
+      ]
+    },
+    {
+      "country": "Ivory Coast",
+      "jerseyColor": "Orange",
+      "players": [
+        {"name": "Sylvain Gbohouo", "age": 35, "number": 1, "position": "GK"},
+        {"name": "Serge Aurier", "age": 31, "number": 17, "position": "RB"},
+        {"name": "Eric Bailly", "age": 30, "number": 3, "position": "CB"},
+        {"name": "Willy Boly", "age": 33, "number": 21, "position": "CB"},
+        {"name": "Ghislain Konan", "age": 28, "number": 2, "position": "LB"},
+        {"name": "Franck Kessié", "age": 27, "number": 8, "position": "CM"},
+        {"name": "Jean Michaël Seri", "age": 32, "number": 6, "position": "CM"},
+        {"name": "Nicolas Pépé", "age": 29, "number": 19, "position": "RW"},
+        {"name": "Wilfried Zaha", "age": 31, "number": 11, "position": "LW"},
+        {"name": "Sébastien Haller", "age": 30, "number": 9, "position": "ST"},
+        {"name": "Maxwel Cornet", "age": 27, "number": 20, "position": "LW"}
+      ]
+    },
+    
+    {
+      "country": "Korea",
+      "jerseyColor": "Red",
+      "players": [
+        {"name": "Kim Seung-gyu", "age": 33, "number": 1, "position": "GK"},
+        {"name": "Kim Min-jae", "age": 27, "number": 4, "position": "CB"},
+        {"name": "Lee Yong", "age": 37, "number": 2, "position": "RB"},
+        {"name": "Hong Chul", "age": 33, "number": 14, "position": "LB"},
+        {"name": "Jung Woo-young", "age": 34, "number": 5, "position": "CM"},
+        {"name": "Hwang In-beom", "age": 27, "number": 6, "position": "CM"},
+        {"name": "Son Heung-min", "age": 32, "number": 7, "position": "LW"},
+        {"name": "Hwang Hee-chan", "age": 28, "number": 11, "position": "RW"},
+        {"name": "Kim Jin-su", "age": 31, "number": 3, "position": "LB"},
+        {"name": "Kwon Chang-hoon", "age": 29, "number": 16, "position": "CAM"},
+        {"name": "Lee Jae-sung", "age": 31, "number": 10, "position": "CM"}
+      ]
+    },
+    {
+      "country": "Latvia",
+      "jerseyColor": "Red and White",
+      "players": [
+        {"name": "Pāvels Šteinbors", "age": 38, "number": 1, "position": "GK"},
+        {"name": "Kaspars Dubra", "age": 33, "number": 4, "position": "CB"},
+        {"name": "Vitālijs Maksimenko", "age": 33, "number": 5, "position": "LB"},
+        {"name": "Roberts Savaļnieks", "age": 30, "number": 2, "position": "RB"},
+        {"name": "Jānis Ikaunieks", "age": 28, "number": 10, "position": "CAM"},
+        {"name": "Vladislavs Gutkovskis", "age": 28, "number": 9, "position": "ST"},
+        {"name": "Andrejs Cigaņiks", "age": 26, "number": 11, "position": "LW"},
+        {"name": "Artūrs Zjuzins", "age": 32, "number": 8, "position": "CM"},
+        {"name": "Igors Tarasovs", "age": 35, "number": 6, "position": "CM"},
+        {"name": "Dāvis Ikaunieks", "age": 29, "number": 7, "position": "RW"},
+        {"name": "Kristers Tobers", "age": 23, "number": 3, "position": "CB"}
+      ]
+    },
+    {
+      "country": "Mexico",
+      "jerseyColor": "Green",
+      "players": [
+        {"name": "Guillermo Ochoa", "age": 38, "number": 13, "position": "GK"},
+        {"name": "Héctor Moreno", "age": 36, "number": 15, "position": "CB"},
+        {"name": "Néstor Araujo", "age": 32, "number": 2, "position": "CB"},
+        {"name": "Jesús Gallardo", "age": 29, "number": 23, "position": "LB"},
+        {"name": "Jorge Sánchez", "age": 26, "number": 3, "position": "RB"},
+        {"name": "Andrés Guardado", "age": 37, "number": 18, "position": "CM"},
+        {"name": "Edson Álvarez", "age": 26, "number": 4, "position": "CDM"},
+        {"name": "Hirving Lozano", "age": 28, "number": 22, "position": "RW"},
+        {"name": "Raúl Jiménez", "age": 33, "number": 9, "position": "ST"},
+        {"name": "Jesús Corona", "age": 31, "number": 17, "position": "LW"},
+        {"name": "Carlos Rodríguez", "age": 27, "number": 8, "position": "CM"}
+      ]
+    },
+    {
+      "country": "Morocco",
+      "jerseyColor": "Red and Green",
+      "players": [
+        {"name": "Yassine Bounou", "age": 33, "number": 1, "position": "GK"},
+        {"name": "Achraf Hakimi", "age": 25, "number": 2, "position": "RB"},
+        {"name": "Romain Saïss", "age": 34, "number": 6, "position": "CB"},
+        {"name": "Noussair Mazraoui", "age": 26, "number": 3, "position": "LB"},
+        {"name": "Sofyan Amrabat", "age": 27, "number": 4, "position": "CDM"},
+        {"name": "Hakim Ziyech", "age": 31, "number": 7, "position": "RW"},
+        {"name": "Youssef En-Nesyri", "age": 27, "number": 19, "position": "ST"},
+        {"name": "Sofiane Boufal", "age": 30, "number": 17, "position": "LW"},
+        {"name": "Selim Amallah", "age": 27, "number": 15, "position": "CAM"},
+        {"name": "Azzedine Ounahi", "age": 24, "number": 8, "position": "CM"},
+        {"name": "Yahia Attiyat Allah", "age": 28, "number": 20, "position": "LB"}
+      ]
+    },
+    {
+      "country": "Peru",
+      "jerseyColor": "White and Red",
+      "players": [
+        {"name": "Pedro Gallese", "age": 34, "number": 1, "position": "GK"},
+        {"name": "Luis Advíncula", "age": 34, "number": 17, "position": "RB"},
+        {"name": "Carlos Zambrano", "age": 34, "number": 5, "position": "CB"},
+        {"name": "Miguel Trauco", "age": 31, "number": 6, "position": "LB"},
+        {"name": "Renato Tapia", "age": 28, "number": 13, "position": "CDM"},
+        {"name": "Christian Cueva", "age": 32, "number": 10, "position": "CAM"},
+        {"name": "André Carrillo", "age": 33, "number": 18, "position": "RW"},
+        {"name": "Gianluca Lapadula", "age": 34, "number": 9, "position": "ST"},
+        {"name": "Edison Flores", "age": 30, "number": 20, "position": "LW"},
+        {"name": "Yoshimar Yotún", "age": 34, "number": 19, "position": "CM"},
+        {"name": "Sergio Peña", "age": 28, "number": 8, "position": "CM"}
+      ]
+    },
+    
+    {
+      "country": "Portugal",
+      "jerseyColor": "Red and Green",
+      "players": [
+        {"name": "Rui Patrício", "age": 36, "number": 1, "position": "GK"},
+        {"name": "Pepe", "age": 41, "number": 3, "position": "CB"},
+        {"name": "Rúben Dias", "age": 27, "number": 4, "position": "CB"},
+        {"name": "João Cancelo", "age": 30, "number": 2, "position": "RB"},
+        {"name": "Raphaël Guerreiro", "age": 30, "number": 5, "position": "LB"},
+        {"name": "Bruno Fernandes", "age": 29, "number": 8, "position": "CAM"},
+        {"name": "Bernardo Silva", "age": 29, "number": 10, "position": "RW"},
+        {"name": "Cristiano Ronaldo", "age": 39, "number": 7, "position": "ST"},
+        {"name": "Diogo Jota", "age": 27, "number": 21, "position": "LW"},
+        {"name": "João Félix", "age": 24, "number": 23, "position": "ST"},
+        {"name": "William Carvalho", "age": 32, "number": 14, "position": "CDM"}
+      ]
+    },
+    {
+  "country": "Scotland",
+  "jerseyColor": "Dark Blue",
+  "players": [
+    {"name": "Craig Gordon", "age": 41, "number": 1, "position": "GK"},
+    {"name": "Andrew Robertson", "age": 30, "number": 3, "position": "LB"},
+    {"name": "Kieran Tierney", "age": 27, "number": 6, "position": "CB"},
+    {"name": "Scott McTominay", "age": 27, "number": 4, "position": "CM"},
+    {"name": "John McGinn", "age": 29, "number": 7, "position": "CM"},
+    {"name": "Callum McGregor", "age": 31, "number": 8, "position": "CM"},
+    {"name": "Ryan Christie", "age": 29, "number": 11, "position": "RW"},
+    {"name": "Che Adams", "age": 28, "number": 10, "position": "ST"},
+    {"name": "Lyndon Dykes", "age": 28, "number": 9, "position": "ST"},
+    {"name": "Billy Gilmour", "age": 23, "number": 14, "position": "CM"},
+    {"name": "Jack Hendry", "age": 29, "number": 5, "position": "CB"}
+  ]
+},
+    {
+      "country": "Slovakia",
+      "jerseyColor": "White and Blue",
+      "players": [
+        {"name": "Martin Dúbravka", "age": 35, "number": 1, "position": "GK"},
+        {"name": "Milan Škriniar", "age": 29, "number": 14, "position": "CB"},
+        {"name": "Peter Pekarík", "age": 37, "number": 2, "position": "RB"},
+        {"name": "Tomáš Hubočan", "age": 38, "number": 15, "position": "CB"},
+        {"name": "David Hancko", "age": 26, "number": 16, "position": "LB"},
+        {"name": "Marek Hamšík", "age": 36, "number": 17, "position": "CM"},
+        {"name": "Juraj Kucka", "age": 37, "number": 19, "position": "CM"},
+        {"name": "Ondrej Duda", "age": 29, "number": 8, "position": "CAM"},
+        {"name": "Róbert Mak", "age": 32, "number": 20, "position": "LW"},
+        {"name": "Albert Rusnák", "age": 29, "number": 7, "position": "RW"},
+        {"name": "Michal Ďuriš", "age": 35, "number": 21, "position": "ST"}
+      ]
+    },
+    {
+      "country": "Slovenia",
+      "jerseyColor": "Green and White",
+      "players": [
+        {"name": "Jan Oblak", "age": 31, "number": 1, "position": "GK"},
+        {"name": "Miha Mevlja", "age": 34, "number": 4, "position": "CB"},
+        {"name": "Petar Stojanović", "age": 28, "number": 2, "position": "RB"},
+        {"name": "Bojan Jokić", "age": 38, "number": 13, "position": "LB"},
+        {"name": "Jasmin Kurtić", "age": 35, "number": 8, "position": "CM"},
+        {"name": "Josip Iličić", "age": 36, "number": 7, "position": "RW"},
+        {"name": "Benjamin Verbič", "age": 30, "number": 21, "position": "LW"},
+        {"name": "Andraž Šporar", "age": 30, "number": 9, "position": "ST"},
+        {"name": "Sandi Lovrić", "age": 25, "number": 10, "position": "CM"},
+        {"name": "Miha Zajc", "age": 29, "number": 6, "position": "CM"},
+        {"name": "Domen Črnigoj", "age": 28, "number": 11, "position": "CM"}
+      ]
+    },
+    {
+      "country": "Togo",
+      "jerseyColor": "Yellow and Green",
+      "players": [
+        {"name": "Malcolm Barcola", "age": 24, "number": 1, "position": "GK"},
+        {"name": "Djene Dakonam", "age": 32, "number": 2, "position": "CB"},
+        {"name": "Steve Lawson", "age": 29, "number": 3, "position": "RB"},
+        {"name": "Floyd Ayité", "age": 35, "number": 10, "position": "LW"},
+        {"name": "Ihlas Bebou", "age": 30, "number": 9, "position": "ST"},
+        {"name": "Kodjo Fo-Doh Laba", "age": 32, "number": 8, "position": "ST"},
+        {"name": "David Henen", "age": 28, "number": 7, "position": "RW"},
+        {"name": "Gilles Sunu", "age": 33, "number": 11, "position": "LW"},
+        {"name": "Henri Eninful", "age": 31, "number": 6, "position": "CM"},
+        {"name": "Kossi Koudagba", "age": 28, "number": 5, "position": "CB"},
+        {"name": "Khaled Adenon", "age": 38, "number": 4, "position": "CB"}
+      ]
+    },
+    {
+      "country": "Ukraine",
+      "jerseyColor": "Yellow and Blue",
+      "players": [
+        {"name": "Andriy Pyatov", "age": 39, "number": 12, "position": "GK"},
+        {"name": "Oleksandr Zinchenko", "age": 27, "number": 17, "position": "LB"},
+        {"name": "Mykola Matviyenko", "age": 28, "number": 22, "position": "CB"},
+        {"name": "Taras Stepanenko", "age": 34, "number": 6, "position": "CDM"},
+        {"name": "Ruslan Malinovskyi", "age": 31, "number": 8, "position": "CM"},
+        {"name": "Andriy Yarmolenko", "age": 34, "number": 7, "position": "RW"},
+        {"name": "Roman Yaremchuk", "age": 28, "number": 9, "position": "ST"},
+        {"name": "Viktor Tsyhankov", "age": 26, "number": 15, "position": "RW"},
+        {"name": "Serhiy Sydorchuk", "age": 33, "number": 5, "position": "CM"},
+        {"name": "Vitaliy Mykolenko", "age": 25, "number": 16, "position": "LB"},
+        {"name": "Artem Dovbyk", "age": 26, "number": 11, "position": "ST"}
+      ]
+    },
+    {
+  "country": "Uruguay",
+  "jerseyColor": "Light Blue and Black",
+  "players": [
+    {"name": "Fernando Muslera", "age": 38, "number": 1, "position": "GK"},
+    {"name": "Diego Godín", "age": 38, "number": 3, "position": "CB"},
+    {"name": "José María Giménez", "age": 29, "number": 2, "position": "CB"},
+    {"name": "Martín Cáceres", "age": 37, "number": 22, "position": "RB"},
+    {"name": "Matías Viña", "age": 26, "number": 17, "position": "LB"},
+    {"name": "Federico Valverde", "age": 25, "number": 15, "position": "CM"},
+    {"name": "Rodrigo Bentancur", "age": 27, "number": 6, "position": "CM"},
+    {"name": "Giorgian De Arrascaeta", "age": 30, "number": 10, "position": "CAM"},
+    {"name": "Darwin Núñez", "age": 25, "number": 9, "position": "ST"},
+    {"name": "Luis Suárez", "age": 37, "number": 9, "position": "ST"},
+    {"name": "Edinson Cavani", "age": 37, "number": 21, "position": "ST"}
+  ]
+},
+   {
+  "country": "USA",
+  "jerseyColor": "White and Blue",
+  "players": [
+    {"name": "Matt Turner", "age": 29, "number": 1, "position": "GK"},
+    {"name": "Walker Zimmerman", "age": 30, "number": 3, "position": "CB"},
+    {"name": "Sergiño Dest", "age": 23, "number": 2, "position": "RB"},
+    {"name": "Antonee Robinson", "age": 26, "number": 5, "position": "LB"},
+    {"name": "Tyler Adams", "age": 25, "number": 4, "position": "CDM"},
+    {"name": "Weston McKennie", "age": 25, "number": 8, "position": "CM"},
+    {"name": "Christian Pulisic", "age": 25, "number": 10, "position": "LW"},
+    {"name": "Giovanni Reyna", "age": 21, "number": 7, "position": "CAM"},
+    {"name": "Timothy Weah", "age": 24, "number": 11, "position": "RW"},
+    {"name": "Haji Wright", "age": 26, "number": 9, "position": "ST"},
+    {"name": "Brenden Aaronson", "age": 23, "number": 14, "position": "CM"}
+  ]
+}]
+}
