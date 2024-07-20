@@ -5,7 +5,7 @@ public class MainMenuUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] panels; // Array to hold all the panels
     [SerializeField] private GameObject settingsPanel; // The settings panel
-
+    
     // Method to show the settings panel and hide all other panels
     public void ShowSettingsPanel()
     {

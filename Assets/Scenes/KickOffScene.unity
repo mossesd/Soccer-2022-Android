@@ -12564,6 +12564,10 @@ MonoBehaviour:
   Team2Material: {fileID: 2100000, guid: 131b9383e287645b0b56a327d86aede1, type: 2}
   Team1HDMaterial: {fileID: 2100000, guid: 141e59af8676d85449a2f7f6725d85eb, type: 2}
   Team2HDMaterial: {fileID: 2100000, guid: 30424ff808f31204ea9436e5e473f835, type: 2}
+  teamNameController: {fileID: 2786306343941043024, guid: 016551c2702412d40a6b02446596644e,
+    type: 3}
+  teamSelectionController: {fileID: 8105263442652621068, guid: 3c951f20e55c5c04898434baa997f518,
+    type: 3}
 --- !u!114 &1863315883
 MonoBehaviour:
   m_ObjectHideFlags: 0
