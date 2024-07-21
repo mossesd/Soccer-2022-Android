@@ -1,8 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <projectSettings>
-  <projectSetting name="Google.VersionHandler.CleanUpPromptEnabled" value="False" />
+  <projectSetting name="com.google.external-dependency-managerAnalyticsCookie" value="2e5c374ae3e344ceb5da46ae03a55653" />
+  <projectSetting name="com.google.external-dependency-managerAnalyticsEnabled" value="True" />
+  <projectSetting name="Google.VersionHandler.CleanUpPromptEnabled" value="True" />
   <projectSetting name="Google.VersionHandler.RenameToCanonicalFilenames" value="False" />
+  <projectSetting name="Google.VersionHandler.RenameToDisableFilesEnabled" value="True" />
   <projectSetting name="Google.VersionHandler.VerboseLoggingEnabled" value="False" />
-  <projectSetting name="Google.VersionHandler.VersionHandlingEnabled" value="False" />
+  <projectSetting name="Google.VersionHandler.VersionHandlingEnabled" value="True" />
   <projectSetting name="GooglePlayServices.AndroidPackageInstallationEnabled" value="False" />
   <projectSetting name="GooglePlayServices.AutoResolutionDisabledWarning" value="False" />
   <projectSetting name="GooglePlayServices.AutoResolverEnabled" value="False" />

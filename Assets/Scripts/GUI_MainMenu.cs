@@ -10,7 +10,7 @@ public class GUI_MainMenu : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		PlayerPrefs.DeleteAll ();
+		//PlayerPrefs.DeleteAll ();
 		AdsManager.SharedObject().ShowBanner();
 		AudioManager.PlayBackgroundMusic ();
 //		audio.PlayOneShot (whistle);

@@ -5,10 +5,11 @@ using System.Linq;
 using TMPro;
 public class GroupsSceneManager : MonoBehaviour
 {
+    [Header("List of Classes for getting TEAM FLAG and TEAM NAME")]
     public TeamNameController teamNameController; // Assign your existing TeamNameController object
     public TeamSelectionController teamSelectionController; // Assign your existing TeamSelectionController object
-    public Image selectedTeamFlag; // Assign the Image UI element for displaying the selected team's flag
-    public Text selectedTeamName; // Assign the Text UI element for displaying the selected team's name
+
+    [Header("List of GAMEOBJECTS for NATIONAL TEAM GROUP")]
     public GameObject groupPrefab; // Prefab for the group GameObject
     public Transform groupsParent; // Parent GameObject to hold the groups
     public GameObject teamPrefab; // Prefab for the team GameObject with GUITexture component
@@ -19,24 +20,52 @@ public class GroupsSceneManager : MonoBehaviour
     public TMP_Text [] teamName;
     public TMP_Text groupName;
 
+    [Header("List of GAMEOBJECTS for CLUB TEAM GROUP")]
+    public GameObject matchPrefab;
+    public Transform matchContainer;
+    public TMP_Text roundText;
+    public Button nextButton;
+    public Button prevButton;
+
+    public GameObject leagueTableRowPrefab;
+    public Transform leagueTableContainer;
+    public LeagueManager leagueManager;
+    public LeagueStats leagueStats;
+
+    [Header("List of GAMEOBJECTS for CLUB TEAM GROUP")]
+    public GameObject nationalTeamPanel;
+    public GameObject clubTeamPanel;
+
     public List<int> teamIndices = new List<int>();
     private Dictionary<int, string> shuffledToTeamNameMap = new Dictionary<int, string>();
+    private DataManager dataManager;
 
-    
+    int SelectedTeamIndex;
 
-    int group = 0;
+    private int group = 0;
+    private int currentRound = 1;
+    private int totalRounds;
+    string tornament; 
     void Awake()
     {
         // Load the selected team information when the script awakens
-        //LoadSelectedTeam();
-        
+        //SelectedTeamIndex = PlayerPrefs.GetInt("SelectedTeamIndex");
+        dataManager = FindObjectOfType<DataManager>();
     }
 
     void Start()
     {
-        LoadTeams();
-        AssignTeamsToGroups();
-        AssignTeamScoreValues();
+        tornament = PlayerPrefs.GetString("tournament");
+        Debug.Log(tornament);
+        switch (tornament)
+        {
+            case "National":
+                NationalTeamPanel();
+                break;
+            case "CreateYourOwnTeam":
+                ClubPanel();
+                break;
+        }
     }
 
     void OnMouseUpAsButton()
@@ -44,25 +73,16 @@ public class GroupsSceneManager : MonoBehaviour
         groupsParent.gameObject.SetActive(false);
         scorePanel.SetActive(true);
         ButtonAction.buttonType = ButtonAction.Buttons.Next;
-    }
 
-
-    void LoadSelectedTeam()
-    {
-        if (PlayerPrefs.HasKey("SelectedTeamIndex"))
+        switch (tornament)
         {
-            int selectedIndex = PlayerPrefs.GetInt("SelectedTeamIndex");
-
-            // Get the selected team's name and flag
-            string teamName = teamNameController.TeamNames[selectedIndex];
-            Texture2D flagTexture = (Texture2D)teamSelectionController.teams[selectedIndex];
-
-            // Update the UI elements with the selected team information
-            selectedTeamFlag.sprite = ConvertTextureToSprite(flagTexture);
-            selectedTeamName.text = teamName;
-
-            Debug.Log("Selected team in GroupsScene: " + teamName);
-        }
+            case "National":
+                TeamScoreTracking.Instance.SaveData();
+                break;
+            case "CreateYourOwnTeam":
+                dataManager.SaveData();
+                break;
+        }    
     }
 
     private void LoadTeams()
@@ -87,6 +107,8 @@ public class GroupsSceneManager : MonoBehaviour
 
     private void AssignTeamsToGroups()
     {
+        List<int> availableIndices = Enumerable.Range(0, 32).ToList(); // List of all team indices
+
         for (int i = 0; i < 8; i++)
         {
             GameObject group = Instantiate(groupPrefab, groupsParent);
@@ -97,7 +119,10 @@ public class GroupsSceneManager : MonoBehaviour
 
             for (int j = 0; j < 4; j++)
             {
-                int teamIndex = teamIndices[i * 4 + j];
+                int randomIndex = Random.Range(0, availableIndices.Count); // Pick a random index
+                int teamIndex = availableIndices[randomIndex]; // Get the team index
+                availableIndices.RemoveAt(randomIndex); // Remove the index to avoid reassigning
+
                 string teamName = teamNameController.TeamNames[teamIndex];
                 GameObject teamObject = Instantiate(teamPrefab, groupGridLayout.transform);
                 AssignTeamData(teamObject, teamIndex);
@@ -111,9 +136,9 @@ public class GroupsSceneManager : MonoBehaviour
             Debug.Log($"Group {group.Key} has teams: {string.Join(", ", group.Value)}");
         }
 
-
         TeamScoreTracking.Instance.SetupMatches(); // Setup matches after teams are assigned
     }
+
 
     private void AssignTeamData(GameObject teamObject, int teamIndex)
     {
@@ -151,23 +176,17 @@ public class GroupsSceneManager : MonoBehaviour
 
             if (matchTeams.Count == 2)
             {
-                int shuffledTeam1Index = matchTeams[0];
-                int shuffledTeam2Index = matchTeams[1];
-
-                Debug.Log($"Shuffled Indices: Team1: {shuffledTeam1Index}, Team2: {shuffledTeam2Index}");
-
-                // Resolve original indices from shuffled indices
-                int team1Index = TeamScoreTracking.Instance.originalToShuffledIndexMap.FirstOrDefault(x => x.Value == shuffledTeam1Index).Key;
-                int team2Index = TeamScoreTracking.Instance.originalToShuffledIndexMap.FirstOrDefault(x => x.Value == shuffledTeam2Index).Key;
+                int team1Index = matchTeams[0];
+                int team2Index = matchTeams[1];               
 
                 Debug.Log($"Original Indices: Team1: {team1Index}, Team2: {team2Index}");
 
-                int score1 = TeamScoreTracking.Instance.GetTeamScore(shuffledTeam1Index);
-                int score2 = TeamScoreTracking.Instance.GetTeamScore(shuffledTeam2Index);
+                int score1 = TeamScoreTracking.Instance.GetTeamScore(team1Index);
+                int score2 = TeamScoreTracking.Instance.GetTeamScore(team2Index);
 
                 // Get team names
-                string team1Name = teamNameController.TeamNames[shuffledTeam1Index];
-                string team2Name = teamNameController.TeamNames[shuffledTeam2Index];
+                string team1Name = teamNameController.TeamNames[team1Index];
+                string team2Name = teamNameController.TeamNames[team2Index];
 
                 details += $"Match {matchId}: {team1Name} (Score: {score1}) vs {team2Name} (Score: {score2})\n";
             }
@@ -188,6 +207,7 @@ public class GroupsSceneManager : MonoBehaviour
 
         for (int i = 0; i < groupMembers.Count; i++)
         {
+            Debug.Log(teamNameController.TeamNames[groupMembers[i]]);
             Texture2D flagTexture = (Texture2D)teamSelectionController.teams[groupMembers[i]];
             teamFlag[i].sprite = ConvertTextureToSprite(flagTexture);
             teamName[i].text = teamNameController.TeamNames[groupMembers[i]];          
@@ -197,5 +217,167 @@ public class GroupsSceneManager : MonoBehaviour
 
         if(group < 7)
             group++;
+    }
+
+    void NationalTeamPanel()
+    {
+        nationalTeamPanel.SetActive(true);
+        clubTeamPanel.SetActive(false);
+
+        SelectedTeamIndex = PlayerPrefs.GetInt("SelectedTeamIndex");
+        if (PlayerPrefs.HasKey("NationalTeamScoreTrackingData"))
+        {
+            groupsParent.gameObject.SetActive(false);
+            ButtonAction.buttonType = ButtonAction.Buttons.Next;
+            AssignTeamScoreValues();
+            scorePanel.SetActive(true);
+        }
+        else
+        {
+            scorePanel.SetActive(false);
+            LoadTeams();
+            AssignTeamsToGroups();
+            AssignTeamScoreValues();
+            ButtonAction.buttonType = ButtonAction.Buttons.None;
+        }
+    }
+
+    void ClubPanel()
+    {
+        nationalTeamPanel.SetActive(false);
+        clubTeamPanel.SetActive(true);
+
+        SelectedTeamIndex = PlayerPrefs.GetInt("CreateYourOwnTeamSelectedTeamIndex");
+        //SelectedTeamIndex = PlayerPrefs.GetInt("SelectedTeamIndex");
+        Debug.Log(teamNameController.TeamNames[SelectedTeamIndex]);
+        UpdateRoundUI();
+        Invoke("DisplayFixtures", 1); 
+        Invoke("DisplayLeagueTable", 1);
+        ButtonAction.buttonType = ButtonAction.Buttons.Next;
+    }
+
+    public List<int> GetRandomTeams(int numberOfTeams)
+    {
+        List<int> allIndices = new List<int>();
+        for (int i = 0; i < teamNameController.TeamNames.Length; i++)
+        {
+            allIndices.Add(i);
+        }
+
+        List<int> selectedIndices = new List<int>();
+        System.Random rng = new System.Random();
+        int selectedCount = 0;
+
+        // Ensure the selected team is included
+        selectedIndices.Add(SelectedTeamIndex);
+        allIndices.Remove(SelectedTeamIndex);
+
+        while (selectedCount < numberOfTeams - 1)
+        {
+            int index = rng.Next(allIndices.Count);
+            selectedIndices.Add(allIndices[index]);
+            allIndices.RemoveAt(index);
+            selectedCount++;
+        }
+
+        return selectedIndices;
+    }
+
+    public void NextRound()
+    {
+        if (currentRound < totalRounds)
+        {
+            currentRound++;
+            UpdateRoundUI();
+            DisplayFixtures();
+        }
+    }
+
+    public void PrevRound()
+    {
+        if (currentRound > 1)
+        {
+            currentRound--;
+            UpdateRoundUI();
+            DisplayFixtures();
+        }
+    }
+
+    private void UpdateRoundUI()
+    {
+        roundText.text = $"Round {currentRound}";
+        prevButton.interactable = currentRound > 1;
+    }
+
+    private void DisplayFixtures()
+    {
+        foreach (Transform child in matchContainer)
+        {
+            Destroy(child.gameObject); // Clear existing matches
+        }
+
+        List<LeagueManager.Match> fixtures = leagueManager.GetFixturesByRound(currentRound);
+
+        foreach (var match in fixtures)
+        {
+            GameObject matchObj = Instantiate(matchPrefab, matchContainer);
+            SetupMatchUI(matchObj, match);
+        }
+
+        totalRounds = leagueManager.GetTotalRounds();
+    }
+
+    private void SetupMatchUI(GameObject matchObj, LeagueManager.Match match)
+    {
+
+        // Set Team1 details
+        Transform team1Image = matchObj.transform.Find("Team1Image");
+        Transform team1Text = matchObj.transform.Find("Team1Text");
+        team1Text.GetComponent<TMP_Text>().text = teamNameController.TeamNames[match.TeamA];
+
+        Texture2D flagTexture = (Texture2D)teamSelectionController.teams[match.TeamA];
+        team1Image.GetComponent<Image>().sprite = ConvertTextureToSprite(flagTexture);
+
+        // Set Team2 details
+        Transform team2Image = matchObj.transform.Find("Team2Image");
+        Transform team2Text = matchObj.transform.Find("Team2Text");
+        team2Text.GetComponent<TMP_Text>().text = teamNameController.TeamNames[match.TeamB];
+
+        Texture2D flagTexture2 = (Texture2D)teamSelectionController.teams[match.TeamB];
+        team2Image.GetComponent<Image>().sprite = ConvertTextureToSprite(flagTexture2);
+    }
+
+    private void DisplayLeagueTable()
+    {
+        foreach (Transform child in leagueTableContainer)
+        {
+            Destroy(child.gameObject); // Clear existing table rows
+        }
+
+        List<KeyValuePair<int, LeagueStats.TeamStats>> sortedTeams = leagueStats.GetSortedTeams();
+        Debug.Log(sortedTeams.Count);
+        for (int i = 0; i < sortedTeams.Count; i++)
+        {
+            int teamIndex = sortedTeams[i].Key;
+            LeagueStats.TeamStats stats = sortedTeams[i].Value;
+
+            GameObject rowObj = Instantiate(leagueTableRowPrefab, leagueTableContainer);
+            SetupLeagueTableRowUI(rowObj, i + 1, teamIndex, stats);
+        }
+    }
+
+    private void SetupLeagueTableRowUI(GameObject rowObj, int position, int teamIndex, LeagueStats.TeamStats stats)
+    {
+        rowObj.transform.Find("No").GetComponent<TMP_Text>().text = position.ToString();
+        rowObj.transform.Find("TeamName").GetComponent<TMP_Text>().text = teamNameController.TeamNames[teamIndex];
+        rowObj.transform.Find("MatchesPlayed").GetComponent<TMP_Text>().text = stats.Played.ToString();
+        rowObj.transform.Find("Won").GetComponent<TMP_Text>().text = stats.Won.ToString();
+        rowObj.transform.Find("Loose").GetComponent<TMP_Text>().text = stats.Lost.ToString();
+        rowObj.transform.Find("Draw").GetComponent<TMP_Text>().text = stats.Drawn.ToString();
+        rowObj.transform.Find("Points").GetComponent<TMP_Text>().text = stats.Points.ToString();
+        rowObj.transform.Find("Goal").GetComponent<TMP_Text>().text = stats.TotalGoals.ToString();
+
+        Texture2D flagTexture = (Texture2D)teamSelectionController.teams[teamIndex];
+        rowObj.transform.Find("TeamImage").GetComponent<Image>().sprite = ConvertTextureToSprite(flagTexture);
     }
 }

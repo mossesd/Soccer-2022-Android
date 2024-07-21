@@ -8061,6 +8061,7 @@ MonoBehaviour:
   selectedTeamName: {fileID: 96372458}
   saveButton: {fileID: 866658380}
   saveAndGoToGroupsButton: {fileID: 210233795}
+  TitleOfTheScene: {fileID: 1873338612}
   teamInfoDisplayManager: {fileID: 1174824965}
 --- !u!4 &1174824964
 Transform:
@@ -11906,8 +11907,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 10398236}
   m_HandleRect: {fileID: 10398235}
   m_Direction: 0
-  m_Value: 0.000000076096114
-  m_Size: 0.29274836
+  m_Value: 0.0000000760961
+  m_Size: 0.29274833
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12571,7 +12572,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1452643452}
   m_Direction: 2
   m_Value: 1.0000026
-  m_Size: 0.2766666
+  m_Size: 0.27666664
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13012,7 +13013,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Select team
+  m_Text: Select TEam
 --- !u!222 &1873338613
 CanvasRenderer:
   m_ObjectHideFlags: 0

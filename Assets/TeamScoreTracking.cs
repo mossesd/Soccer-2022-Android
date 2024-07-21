@@ -1,19 +1,21 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class TeamScoreTracking : MonoBehaviour
 {
-    public Dictionary<int, List<int>> groupAssignments = new Dictionary<int, List<int>>(); // Group ID to list of team indices
-    public Dictionary<int, int> teamScores = new Dictionary<int, int>(); // Team index to score
-    public Dictionary<int, List<int>> matchPairs = new Dictionary<int, List<int>>(); // Match ID to list of team indices
-    public Dictionary<int, bool> matchResults = new Dictionary<int, bool>(); // Match ID to whether the match is played
-    public Dictionary<int, int> originalToShuffledIndexMap = new Dictionary<int, int>();
-    public Dictionary<int, List<int>> groupMatches = new Dictionary<int, List<int>>(); // Group ID to list of match IDs
-    public Dictionary<int, List<int>> matches = new Dictionary<int, List<int>>(); // Match ID to list of team indices
+    public Dictionary<int, List<int>> groupAssignments = new Dictionary<int, List<int>>();
+    public Dictionary<int, int> teamScores = new Dictionary<int, int>();
+    public Dictionary<int, List<int>> matchPairs = new Dictionary<int, List<int>>();
+    public Dictionary<int, bool> matchResults = new Dictionary<int, bool>();
+    public Dictionary<int, List<int>> groupMatches = new Dictionary<int, List<int>>();
+    public Dictionary<int, List<int>> matches = new Dictionary<int, List<int>>();
 
     public static TeamScoreTracking Instance { get; private set; }
 
     private int matchCounter = 0;
+    private const string fileName = "NationalTeamScoreTrackingData.json";
 
     private void Awake()
     {
@@ -25,6 +27,80 @@ public class TeamScoreTracking : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+        if (PlayerPrefs.HasKey("NationalTeamScoreTrackingData"))
+            LoadData();
+    }
+
+    /*private void OnApplicationQuit()
+    {
+        SaveData();
+    }*/
+
+    public void SaveData()
+    {     
+        TeamScoreTrackingData data = new TeamScoreTrackingData(
+            groupAssignments,
+            teamScores,
+            matchPairs,
+            matchResults,
+            groupMatches,
+            matches
+        );
+
+        string json = JsonUtility.ToJson(data);
+        JsonUtilityHelper.SaveToFile(fileName, json);
+
+        PlayerPrefs.SetString("NationalTeamScoreTrackingData", "json");
+    }
+
+    public void LoadData()
+    {
+        string json = JsonUtilityHelper.LoadFromFile(fileName);
+        if (!string.IsNullOrEmpty(json))
+        {
+            TeamScoreTrackingData data = JsonUtility.FromJson<TeamScoreTrackingData>(json);
+
+            if (data != null)
+            {
+                this.groupAssignments = data.GetGroupAssignments();
+                this.teamScores = data.GetTeamScores();
+                this.matchPairs = data.GetMatchPairs();
+                this.matchResults = data.GetMatchResults();
+                this.groupMatches = data.GetGroupMatches();
+                this.matches = data.GetMatches();
+            }
+            else
+            {
+                Debug.LogError("Deserialized data is null.");
+            }
+
+            Debug.Log("Data loaded successfully.");
+            //LogCurrentState();
+        }
+        else
+        {
+            Debug.Log("No saved data found.");
+        }
+    }
+
+    private void LogCurrentState()
+    {
+        Debug.Log($"groupAssignments: {groupAssignments.Count}");
+        Debug.Log($"teamScores: {teamScores.Count}");
+        Debug.Log($"matchPairs: {matchPairs.Count}");
+        Debug.Log($"matchResults: {matchResults.Count}");
+        Debug.Log($"groupMatches: {groupMatches.Count}");
+        Debug.Log($"matches: {matches.Count}");
+
+        foreach (var group in groupAssignments)
+        {
+            Debug.Log($"Group {group.Key} has teams: {string.Join(", ", group.Value)}");
+        }
+
+        foreach (var score in teamScores)
+        {
+            Debug.Log($"Team {score.Key} has score: {score.Value}");
         }
     }
 

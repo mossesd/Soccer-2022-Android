@@ -2064,7 +2064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72755f8b25f9c8145b6be9187cf0ce4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag1: {fileID: 1417421794}
+  flag1: {fileID: 394530230}
   flag2: {fileID: 1417421794}
   flag3: {fileID: 190649908}
   flag4: {fileID: 1003175391}

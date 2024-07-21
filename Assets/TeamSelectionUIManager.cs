@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TeamSelectionUIManager : MonoBehaviour
 {
@@ -13,10 +14,19 @@ public class TeamSelectionUIManager : MonoBehaviour
     public TMP_Text selectedTeamName; // Assign the TMP_Text UI element for displaying the selected team's name
     public Button saveButton; // Assign the Save Button UI element
     public Button saveAndGoToGroupsButton; // Assign the new Save and Go to Groups Button UI element
+    public Text TitleOfTheScene;
 
     public TeamInfoDisplayManager teamInfoDisplayManager; // Assign the TeamInfoDisplayManager script here
 
     private string currentTeamName; // Store the currently selected team name
+    string selectedTeamIndex;
+
+    string tournament = "tournament";
+
+    string tournament1 = "CreateYourOwnTeam";
+    string tournament2 = "National";
+    string tournament3 = "Club";
+    string tournament4 = "Frendly";
 
     void Start()
     {
@@ -24,6 +34,8 @@ public class TeamSelectionUIManager : MonoBehaviour
         saveButton.onClick.AddListener(SaveSelectedTeam);
         saveAndGoToGroupsButton.onClick.AddListener(SaveSelectedTeamAndGoToGroups);
         LoadSelectedTeam();
+
+        selectedTeamIndex = SavePlayerPrefs();
     }
 
     void PopulateTeamButtons()
@@ -76,7 +88,7 @@ public class TeamSelectionUIManager : MonoBehaviour
 
             // Save the selected team name and flag texture path
             PlayerPrefs.SetString("SelectedTeamName", newTeamName);
-            PlayerPrefs.SetInt("SelectedTeamIndex", TeamSelectionController.teamIndex);
+            PlayerPrefs.SetInt(selectedTeamIndex, TeamSelectionController.teamIndex);
 
             // Convert the sprite to a texture and then to a byte array for saving
             Texture2D texture = MakeTextureReadable(selectedTeamFlag.sprite.texture);
@@ -99,7 +111,8 @@ public class TeamSelectionUIManager : MonoBehaviour
     void SaveSelectedTeamAndGoToGroups()
     {
         SaveSelectedTeam();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GroupsScene");
+
+        SceneManager.LoadScene("GroupsScene");
     }
 
     void LoadSelectedTeam()
@@ -149,5 +162,22 @@ public class TeamSelectionUIManager : MonoBehaviour
         RenderTexture.ReleaseTemporary(renderTex);
 
         return readableTexture;
+    }
+
+    string SavePlayerPrefs()
+    {
+        string tornament = PlayerPrefs.GetString(tournament);
+
+        switch (tornament)
+        {
+            case "National":
+                TitleOfTheScene.text = "Select Country";
+                return "SelectedTeamIndex";
+            case "CreateYourOwnTeam":
+                TitleOfTheScene.text = "Select Team";
+                return "CreateYourOwnTeamSelectedTeamIndex";
+        }
+
+        return null;
     }
 }

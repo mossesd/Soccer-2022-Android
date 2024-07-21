@@ -41,6 +41,7 @@ public class ButtonAction : MonoBehaviour
         NO_QUIT,
         Resume,
         Pause,
+        OwnTeam,
         None
     };
 
@@ -123,6 +124,10 @@ public class ButtonAction : MonoBehaviour
                     Application.LoadLevel("KickOffScene");
                 else if (Application.loadedLevelName == "2ndTeamSelection")
                     Application.LoadLevel("KickOffScene");
+                break;
+
+            case Buttons.OwnTeam:
+                Application.LoadLevel("KickOffScene");
                 break;
 
             case Buttons.PrevTeam:

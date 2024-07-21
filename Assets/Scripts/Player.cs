@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    public static float ballGetableDistance = 0.5f;
+    public static float ballGetableDistance = 1f;
     public OtherDialoguesActive ode;
     public GameObject matchComplete, halfComplete;
     public Texture barTexture;
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private Rect shootButtonRect;
     private Rect tackleButtonRect;
 
-    int moveSpeed = 5;
+    int moveSpeed = 10;
     [HideInInspector]
     public bool isMoving = false;
 
@@ -64,10 +64,11 @@ public class Player : MonoBehaviour
         initialPosition = transform.position;
         targetPosition = initialPosition;
 
+
         highlight = GameObject.Find("Highlight").transform;
         touchRect = new Rect(Screen.width / 3 * 2, 0, Screen.width / 3, Screen.height);
         theBall = GameObject.FindGameObjectWithTag("TheSoccerBall");
-
+        GetComponent<Animation>().Play("reposo", PlayMode.StopAll);
         ballRigidbody = theBall.GetComponent<Rigidbody>(); // Initialize Rigidbody
 
         GameObject[] playersT = GameObject.FindGameObjectsWithTag("Player");
@@ -145,130 +146,130 @@ public class Player : MonoBehaviour
                 multiplier = 0f;
 
 #if !UNITY_EDITOR
-            float x = multiplier * GameObject.Find("Single Joystick").GetComponent<Joystick>().position.x;
-            float y = multiplier * GameObject.Find("Single Joystick").GetComponent<Joystick>().position.y;
-            if (((Mathf.Abs(x) > 0.1f) || (Mathf.Abs(y) > 0.1f)) && (!waitForPass || HasTheBall()))
+        float x = multiplier * GameObject.Find("Single Joystick").GetComponent<Joystick>().position.x;
+        float y = multiplier * GameObject.Find("Single Joystick").GetComponent<Joystick>().position.y;
+        if (((Mathf.Abs(x) > 0.1f) || (Mathf.Abs(y) > 0.1f)) && (!waitForPass || HasTheBall()))
+        {
+            if (GetComponent<Animation>()["tiro"].enabled == false)
+                transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed * 0.65f);
+
+            isMoving = true;
+
+            if (GetComponent<Animation>()["corriendo"].enabled == false && GetComponent<Animation>()["tiro"].enabled == false)
+                GetComponent<Animation>().Play("corriendo", PlayMode.StopAll);
+
+            transform.eulerAngles = new Vector3(0, 90 + Mathf.Atan2(-y, x) * 180 / Mathf.PI, 0);
+        }
+
+        if (transform == ControllablePlayer())
+            foreach (Touch touch in Input.touches)
             {
-                if (GetComponent<Animation>()["tiro"].enabled == false)
-                    transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed * 0.65f);
+                Vector2 inputGuiPosition = touch.position;
+                inputGuiPosition.y = Screen.height - inputGuiPosition.y;
 
-                isMoving = true;
-
-                if (GetComponent<Animation>()["corriendo"].enabled == false && GetComponent<Animation>()["tiro"].enabled == false)
-                    GetComponent<Animation>().Play("corriendo", PlayMode.StopAll);
-
-                transform.eulerAngles = new Vector3(0, 90 + Mathf.Atan2(-y, x) * 180 / Mathf.PI, 0);
-            }
-
-            if (transform == ControllablePlayer())
-                foreach (Touch touch in Input.touches)
+                if (touch.phase != TouchPhase.Canceled && HasTheBall())
                 {
-                    Vector2 inputGuiPosition = touch.position;
-                    inputGuiPosition.y = Screen.height - inputGuiPosition.y;
-
-                    if (touch.phase != TouchPhase.Canceled && HasTheBall())
+                    if (sprintButtonRect.Contains(inputGuiPosition) && touch.phase != TouchPhase.Ended)
                     {
-                        if (sprintButtonRect.Contains(inputGuiPosition) && touch.phase != TouchPhase.Ended)
+                        sprintButtonPressed = true;
+                        break;
+                    }
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        if (sprintButtonPressed == true)
                         {
-                            sprintButtonPressed = true;
+                            sprintButtonPressed = false;
                             break;
                         }
-                        else if (touch.phase == TouchPhase.Ended)
-                        {
-                            if (sprintButtonPressed == true)
-                            {
-                                sprintButtonPressed = false;
-                                break;
-                            }
-                        }
-
-                        if (passButtonRect.Contains(inputGuiPosition) && touch.phase != TouchPhase.Ended)
-                            passButtonPressed = true;
-                        else if (touch.phase == TouchPhase.Ended)
-                        {
-                            if (passButtonPressed == true)
-                            {
-                                passButtonPressed = false;
-                                //PASS CODE HERE..
-                                StartCoroutine(PassTheBall());
-                                Player.ballGetableDistance = 2.5f;
-                                waitForPass = true;
-                                Invoke("waitForPassMethod", 3.5f);
-                                break;
-                            }
-                        }
-
-                        if (shootButtonRect.Contains(inputGuiPosition) && touch.phase != TouchPhase.Ended)
-                            shootButtonPressed = true;
-                        else if (touch.phase == TouchPhase.Ended)
-                        {
-                            if (shootButtonPressed == true)
-                            {
-                                shootButtonPressed = false;
-                                //SHOOT CODE HERE..
-                                progress = 1;
-                                StartCoroutine(KickTheBall());
-                                break;
-                            }
-                        }
                     }
-                    if (touch.phase != TouchPhase.Canceled && !HasTheBall())
+
+                    if (passButtonRect.Contains(inputGuiPosition) && touch.phase != TouchPhase.Ended)
+                        passButtonPressed = true;
+                    else if (touch.phase == TouchPhase.Ended)
                     {
-                        if (sprintButtonRect.Contains(inputGuiPosition) && touch.phase != TouchPhase.Ended)
+                        if (passButtonPressed == true)
                         {
-                            sprintButtonPressed = true;
+                            passButtonPressed = false;
+                            //PASS CODE HERE..
+                            StartCoroutine(PassTheBall());
+                            Player.ballGetableDistance = 2.5f;
+                            waitForPass = true;
+                            Invoke("waitForPassMethod", 3.5f);
                             break;
                         }
-                        else if (touch.phase == TouchPhase.Ended)
-                        {
-                            if (sprintButtonPressed == true)
-                            {
-                                sprintButtonPressed = false;
-                                break;
-                            }
-                        }
+                    }
 
-                        if (tackleButtonRect.Contains(inputGuiPosition) && touch.phase != TouchPhase.Ended)
-                            tackleButtonPressed = true;
-                        else if (touch.phase == TouchPhase.Ended)
+                    if (shootButtonRect.Contains(inputGuiPosition) && touch.phase != TouchPhase.Ended)
+                        shootButtonPressed = true;
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        if (shootButtonPressed == true)
                         {
-                            if (tackleButtonPressed == true)
-                            {
-                                tackleButtonPressed = false;
-                                //TACKLE CODE HERE..
-                                if (Time.time - lastTackleTime > 3 && theBallScript.ownerPlayer != null && Vector3.Distance(theBallScript.ownerPlayer.position, transform.position) < 1 && GameManager.SharedObject().IsGameReady)
-                                {
-                                    theBallScript.ownerPlayer.gameObject.GetComponent<Animation>().Play("entrada", PlayMode.StopAll);
-                                    theBallScript.SetOwner(transform);
-                                    lastTackleTime = Time.time;
-                                }
-                                break;
-                            }
+                            shootButtonPressed = false;
+                            //SHOOT CODE HERE..
+                            progress = 1;
+                            StartCoroutine(KickTheBall());
+                            break;
                         }
-                    }
-                    else if (touch.phase == TouchPhase.Canceled)
-                    {
-                        passButtonPressed = false;
-                        sprintButtonPressed = false;
-                        shootButtonPressed = false;
-                    }
-                    else if (progress > 0)
-                    {
-                        StartCoroutine(KickTheBall());
                     }
                 }
+                if (touch.phase != TouchPhase.Canceled && !HasTheBall())
+                {
+                    if (sprintButtonRect.Contains(inputGuiPosition) && touch.phase != TouchPhase.Ended)
+                    {
+                        sprintButtonPressed = true;
+                        break;
+                    }
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        if (sprintButtonPressed == true)
+                        {
+                            sprintButtonPressed = false;
+                            break;
+                        }
+                    }
 
-            if (sprintButtonPressed && sprintStamina > 0)
-            {
-                sprintStamina -= Time.deltaTime;
-                moveSpeed = 8;
-                GetComponent<Animation>()["corriendo"].speed = 1.5f;
+                    if (tackleButtonRect.Contains(inputGuiPosition) && touch.phase != TouchPhase.Ended)
+                        tackleButtonPressed = true;
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        if (tackleButtonPressed == true)
+                        {
+                            tackleButtonPressed = false;
+                            //TACKLE CODE HERE..
+                            if (Time.time - lastTackleTime > 3 && theBallScript.ownerPlayer != null && Vector3.Distance(theBallScript.ownerPlayer.position, transform.position) < 1 && GameManager.SharedObject().IsGameReady)
+                            {
+                                theBallScript.ownerPlayer.gameObject.GetComponent<Animation>().Play("entrada", PlayMode.StopAll);
+                                theBallScript.SetOwner(transform);
+                                lastTackleTime = Time.time;
+                            }
+                            break;
+                        }
+                    }
+                }
+                else if (touch.phase == TouchPhase.Canceled)
+                {
+                    passButtonPressed = false;
+                    sprintButtonPressed = false;
+                    shootButtonPressed = false;
+                }
+                else if (progress > 0)
+                {
+                    StartCoroutine(KickTheBall());
+                }
             }
-            else
-            {
-                moveSpeed = 5;
-                GetComponent<Animation>()["corriendo"].speed = 1f;
-            }
+
+        if (sprintButtonPressed && sprintStamina > 0)
+        {
+            sprintStamina -= Time.deltaTime;
+            moveSpeed = 8;
+            GetComponent<Animation>()["corriendo"].speed = 1.5f;
+        }
+        else
+        {
+            moveSpeed = 5;
+            GetComponent<Animation>()["corriendo"].speed = 1f;
+        }
 #endif
 #if UNITY_EDITOR
             float x = Input.GetAxis("Horizontal");
@@ -348,7 +349,7 @@ public class Player : MonoBehaviour
             Vector3 shootDirection = transform.forward; // Use the player's forward direction
 
             // Define the force magnitude (adjust as needed)
-            float forceMagnitude = 100f;
+            float forceMagnitude = 10f;
 
             // Apply force to the ball
             ballRigidbody.AddForce(shootDirection * forceMagnitude, ForceMode.Impulse);
@@ -397,6 +398,7 @@ public class Player : MonoBehaviour
         return nearestPlayer;
     }
 
+
     void OnGUI()
     {
         if (noControls) return;
@@ -420,6 +422,8 @@ public class Player : MonoBehaviour
     }
 
     private bool waitForPass = false;
+    private object playerAnimation;
+
     private void waitForPassMethod()
     {
         Player.ballGetableDistance = 0.5f;

@@ -5,7 +5,14 @@ public class MainMenuUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] panels; // Array to hold all the panels
     [SerializeField] private GameObject settingsPanel; // The settings panel
-    
+
+    string tournament = "tournament";
+
+    string tournament1 = "CreateYourOwnTeam";
+    string tournament2 = "National";
+    string tournament3 = "Club";
+    string tournament4 = "Frendly";
+
     // Method to show the settings panel and hide all other panels
     public void ShowSettingsPanel()
     {
@@ -27,9 +34,24 @@ public class MainMenuUIManager : MonoBehaviour
     }
 
     // Method to load the CreateTeam scene
+    public void LoadNationalTeamScene()
+    {
+        if (PlayerPrefs.HasKey("NationalTeamScoreTrackingData"))
+            SceneManager.LoadScene("GroupsScene");
+        else
+            SceneManager.LoadScene("CreateTeam");
+
+        PlayerPrefs.SetString(tournament, tournament2);
+    }
+
     public void LoadCreateTeamScene()
     {
-        SceneManager.LoadScene("CreateTeam");
+        if (PlayerPrefs.HasKey("ClubTeamScoreTrackingData"))
+            SceneManager.LoadScene("GroupsScene");
+        else
+            SceneManager.LoadScene("CreateTeam");
+
+        PlayerPrefs.SetString(tournament, tournament1);
     }
 
     // Add more methods to load other scenes as needed

@@ -726,10 +726,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 3
-  cloudProjectId: 
+  cloudProjectId: 3e2f1df5-37b9-43fe-bca8-1a072aea9517
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Soccer-2022-Android
+  organizationId: mossesd
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

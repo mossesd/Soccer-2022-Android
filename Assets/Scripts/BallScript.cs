@@ -6,7 +6,7 @@ public class BallScript : MonoBehaviour
     [HideInInspector]
     public bool isKicked = false;
 
-    private Vector3 initialPosition, lastPosition;
+    private Vector3 initialPosition;
     public Transform ownerPlayer;
     private float lastTime = 0;
 
@@ -45,6 +45,7 @@ public class BallScript : MonoBehaviour
 
     void Update()
     {
+
         if (GetComponent<Rigidbody>().velocity.magnitude > 20f)
         {
             Vector3 vel = GetComponent<Rigidbody>().velocity.normalized;
@@ -75,7 +76,14 @@ public class BallScript : MonoBehaviour
 
         if (transform.position.y < -0.15f)
             transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
+
+        // Detect shooting input
+        if (Input.GetKeyDown(KeyCode.M) && ownerPlayer != null)
+        {
+            StartCoroutine(ShootBall());
+        }
     }
+
 
     public void PassBall()
     {
@@ -89,17 +97,41 @@ public class BallScript : MonoBehaviour
         }
     }
 
-    public void ShootBall()
+    public IEnumerator ShootBall()
     {
         // Implement shooting logic
         if (ownerPlayer != null)
         {
+            Debug.Log("Shooting ball...");
+
+            // Check if the ownerPlayer has an Animation component
+            Animation playerAnimation = ownerPlayer.GetComponent<Animation>();
+            if (playerAnimation != null)
+            {
+                Debug.Log("Playing shoot animation...");
+                playerAnimation.Play("tiro", PlayMode.StopAll);
+                yield return new WaitForSeconds(0.3f);
+            }
+            else
+            {
+                Debug.LogWarning("Owner player does not have an Animation component.");
+            }
+
             // Set the ball as free and apply a force in the forward direction of the player
             isFree = true;
+
+            // Calculate the shooting force with an upward component
+            Vector3 shootDirection = ownerPlayer.forward + new Vector3(0, 0.5f, 0); // Adjust the upward component as needed
+            GetComponent<Rigidbody>().velocity = shootDirection.normalized * 500; // Adjust the force magnitude as needed
+
             ownerPlayer = null;
-            GetComponent<Rigidbody>().velocity = transform.forward * 20; // Adjust the force as needed
+        }
+        else
+        {
+            Debug.LogWarning("No owner player assigned to the ball.");
         }
     }
+
 
     public void TackleBall()
     {
@@ -122,9 +154,11 @@ public class BallScript : MonoBehaviour
             isFree = true;
             ownerPlayer = null;
             Vector3 direction = (nearestPlayer.position - transform.position).normalized;
-            GetComponent<Rigidbody>().velocity = direction * 10; // Adjust the force as needed
+            float forceMagnitude = 10f; // Adjust the force as needed
+            GetComponent<Rigidbody>().velocity = direction * forceMagnitude;
         }
     }
+
 
     public void SetOwnerIfPossible(Transform owner)
     {
@@ -141,6 +175,8 @@ public class BallScript : MonoBehaviour
             ownerPlayer = owner;
 
             lastOwnerTag = ownerPlayer.tag;
+
+            Debug.Log("Owner player set to: " + ownerPlayer.name);
         }
     }
 
@@ -159,6 +195,8 @@ public class BallScript : MonoBehaviour
 
             lastOwnerTag = ownerPlayer.tag;
             lastTime = Time.time;
+
+            Debug.Log("Owner player set to: " + ownerPlayer.name);
         }
     }
 }
