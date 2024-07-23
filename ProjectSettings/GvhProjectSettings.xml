@@ -2,6 +2,7 @@
 <projectSettings>
   <projectSetting name="com.google.external-dependency-managerAnalyticsCookie" value="2e5c374ae3e344ceb5da46ae03a55653" />
   <projectSetting name="com.google.external-dependency-managerAnalyticsEnabled" value="True" />
+  <projectSetting name="com.google.firebaseAnalyticsEnabled" value="False" />
   <projectSetting name="Google.VersionHandler.CleanUpPromptEnabled" value="True" />
   <projectSetting name="Google.VersionHandler.RenameToCanonicalFilenames" value="False" />
   <projectSetting name="Google.VersionHandler.RenameToDisableFilesEnabled" value="True" />
@@ -13,5 +14,6 @@
   <projectSetting name="GooglePlayServices.ExplodeAars" value="False" />
   <projectSetting name="GooglePlayServices.PatchAndroidManifest" value="False" />
   <projectSetting name="GooglePlayServices.UseGradleDaemon" value="False" />
+  <projectSetting name="GooglePlayServices.UseJetifier" value="True" />
   <projectSetting name="GooglePlayServices.VerboseLogging" value="False" />
 </projectSettings>
